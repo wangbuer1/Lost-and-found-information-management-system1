@@ -1,0 +1,215 @@
+
+
+#sql("BrowseNoticeInfo")
+select * from notice
+#end
+
+#sql("BrowseAllAdminInfo")
+select * from admin
+#end
+
+#sql("BrowseAllStudentInfo")
+select * from student
+#end
+
+#sql("ManageApplyInfo")
+SELECT
+	application.*,
+	student.stuName
+FROM
+	application,
+	student
+WHERE
+	application.stuId = student.stuId
+
+#end
+
+
+#sql("ManageThanksInfo")
+SELECT
+	expressthanks.*,
+	student.stuName
+FROM
+	expressthanks,
+	student
+WHERE
+	expressthanks.stuId = student.stuId
+
+#end
+
+#sql("BrowseAllExpressThanks")
+SELECT
+	expressthanks.*,
+	student.stuName
+FROM
+	expressthanks,student
+WHERE
+expressthanks.stuId=student.stuId
+#end
+
+
+#sql("query_Lostresult")
+SELECT
+	lostthings.*, type.type,
+	student.stuName
+FROM
+	lostthings,
+	type,
+	student
+WHERE
+	lostthings.thingsType = type.id
+AND lostthings.stuId = student.stuId
+AND lostthings.thingsType = #para(0)
+#end
+
+#sql("BrowseAllLostInfo")
+SELECT
+	lostthings.*, type.type,student.stuName
+FROM
+	lostthings,
+	type,
+student
+WHERE
+	 lostthings.thingsType = type.id and lostthings.stuId=student.stuId
+#end
+
+#sql("query_result")
+SELECT
+	pickthings.*, type.type,
+	student.stuName
+FROM
+	pickthings,
+	type,
+	student
+WHERE
+	pickthings.thingsType = type.id
+AND pickthings.stuId = student.stuId
+AND pickthings.thingsType = #para(0)
+#end
+
+#sql("BrowseAllPickInfo")
+SELECT
+	pickthings.*, type.type,student.stuName
+FROM
+	pickthings,
+	type,
+student
+WHERE
+	 pickthings.thingsType = type.id and pickthings.stuId=student.stuId
+#end
+
+#sql("PassPickInfo")
+SELECT
+	t.*, student.stuName,
+	student.tel
+FROM
+	(
+		SELECT
+			application.*
+		FROM
+			application
+		WHERE
+			application.pickId = ?
+	) AS t
+LEFT JOIN student ON t.stuId = student.stuId
+#end
+
+#sql("ListMyPickInfo")
+SELECT
+	pickthings.*, type.type
+FROM
+	pickthings,
+	type
+WHERE
+	stuId = ?
+AND pickthings.thingsType = type.id
+#end
+
+#sql("ListMyLostInfo")
+SELECT
+	lostthings.*,student.stuName,type.type
+FROM
+	lostthings,student,type
+WHERE
+	lostthings.stuId = ? and lostthings.stuId=student.stuId and lostthings.thingsType=type.id
+#end
+
+#sql("LostthingDetail")
+SELECT
+	lostthings.*, student.*, type.type
+FROM
+	lostthings,
+	student,
+	type
+WHERE
+	lostthings.id = ?
+AND student.stuId = lostthings.stuId
+AND lostthings.thingsType = type.id
+#end
+
+#sql("PickthingDetail")
+SELECT
+	pickthings.*,student.*,type.type
+FROM
+	pickthings,
+	student,
+	type
+WHERE
+	pickthings.id =?
+AND student.stuId = pickthings.stuId
+AND pickthings.thingsType = type.id
+#end
+
+#sql("mainPageForNotice")
+SELECT
+	*
+FROM
+	notice
+
+ORDER BY publishTime desc
+
+LIMIT 1
+#end
+
+#sql("mainPageForLostInfo")
+SELECT
+	*
+FROM
+	lostthings
+
+ORDER BY publishTime desc
+
+LIMIT 10
+#end
+
+#sql("mainPageForPickInfo")
+SELECT
+	*
+FROM
+	pickthings
+
+ORDER BY publishTime desc
+
+LIMIT 10
+#end
+#sql("check_login_admin")
+SELECT
+	*
+FROM
+	admin
+WHERE
+	id = ?
+AND password  = ?
+#end
+
+
+#sql("check_login_stu")
+SELECT
+	*
+FROM
+	student
+WHERE
+	student.stuId = ?
+AND student. PASSWORD = ?
+
+#end

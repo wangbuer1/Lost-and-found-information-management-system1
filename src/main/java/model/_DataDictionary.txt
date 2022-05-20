@@ -1,0 +1,100 @@
+Table: admin
+----------+-------------+------+-----+---------+---------
+ Field    | Type        | Null | Key | Default | Remarks 
+----------+-------------+------+-----+---------+---------
+ id       | INT(10)     | NO   | PRI |         | ID自增    
+ name     | VARCHAR(20) | NO   |     |         | 用户名     
+ password | VARCHAR(50) | NO   |     |         | 密码      
+ tel      | VARCHAR(12) | NO   |     |         | 联系电话    
+ email    | VARCHAR(30) | YES  |     |         | 邮箱      
+ qq       | VARCHAR(15) | YES  |     |         | qq      
+----------+-------------+------+-----+---------+---------
+
+Table: application
+-----------+----------+------+-----+---------+---------
+ Field     | Type     | Null | Key | Default | Remarks 
+-----------+----------+------+-----+---------+---------
+ id        | INT(10)  | NO   | PRI |         |         
+ pickId    | INT(10)  | YES  |     |         |         
+ stuId     | INT(10)  | YES  |     |         |         
+ applyTime | DATE(10) | YES  |     |         |         
+-----------+----------+------+-----+---------+---------
+
+Table: expressthanks
+-----------+--------------+------+-----+---------+---------
+ Field     | Type         | Null | Key | Default | Remarks 
+-----------+--------------+------+-----+---------+---------
+ id        | INT(10)      | NO   | PRI |         | ID      
+ title     | VARCHAR(30)  | NO   |     |         | 感谢标题    
+ content   | VARCHAR(255) | NO   |     |         | 感谢内容    
+ status    | INT(10)      | NO   |     |         | 删除状态    
+ stuId     | INT(10)      | NO   |     |         | 感谢人     
+ leaveTime | DATE(10)     | NO   |     |         | 感谢时间    
+-----------+--------------+------+-----+---------+---------
+
+Table: lostthings
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ id           | INT(10)      | NO   | PRI |         | LostThings ID 自增
+ thingsName   | VARCHAR(30)  | NO   |     |         | 物品名称    
+ lostPlace    | VARCHAR(30)  | NO   |     |         | 丢失地点    
+ lostTime     | DATE(10)     | NO   |     |         | 丢失时间    
+ thingsType   | INT(10)      | NO   |     |         | 物品类型    
+ thingsImg    | VARCHAR(255) | YES  |     |         | 物品图片 可 null
+ thingsDetail | VARCHAR(255) | NO   |     |         | 物品描述    
+ publishTime  | DATE(10)     | NO   |     |         | 发布时间    
+ status       | INT(10)      | NO   |     |         | 认领状态    
+ stuId        | INT(10)      | NO   |     |         | 用户名     
+--------------+--------------+------+-----+---------+---------
+
+Table: notice
+-------------+----------------------+------+-----+---------+---------
+ Field       | Type                 | Null | Key | Default | Remarks 
+-------------+----------------------+------+-----+---------+---------
+ id          | INT(10)              | NO   | PRI |         | ID      
+ title       | VARCHAR(50)          | YES  |     |         | 标题      
+ content     | LONGTEXT(2147483647) | NO   |     |         | ÄÚÈÝ    
+ status      | INT(10)              | NO   |     |         | 状态（0显示,1不显示）
+ publishTime | DATE(10)             | NO   |     |         | 发布时间    
+-------------+----------------------+------+-----+---------+---------
+
+Table: pickthings
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ id           | INT(10)      | NO   | PRI |         | LostThings ID 自增
+ thingsName   | VARCHAR(30)  | NO   |     |         | 物品名称    
+ pickPlace    | VARCHAR(30)  | NO   |     |         | 丢失地点    
+ pickTime     | DATE(10)     | NO   |     |         | 丢失时间    
+ thingsType   | INT(10)      | NO   |     |         | 物品类型    
+ thingsImg    | VARCHAR(255) | YES  |     |         | 物品图片    
+ thingsDetail | VARCHAR(255) | NO   |     |         | 物品描述    
+ storagePlace | VARCHAR(255) | YES  |     |         | 暂存地点    
+ publishTime  | DATETIME(19) | YES  |     |         | 发布时间    
+ Status       | INT(10)      | NO   |     |         | 状态      
+ stuId        | INT(10)      | NO   |     |         | 用户名     
+--------------+--------------+------+-----+---------+---------
+
+Table: student
+----------+--------------+------+-----+---------+---------
+ Field    | Type         | Null | Key | Default | Remarks 
+----------+--------------+------+-----+---------+---------
+ stuId    | INT(10)      | NO   | PRI |         |         
+ stuName  | VARCHAR(255) | YES  |     |         |         
+ password | VARCHAR(255) | YES  |     |         |         
+ major    | VARCHAR(255) | YES  |     |         |         
+ QQ       | VARCHAR(255) | YES  |     |         |         
+ email    | VARCHAR(255) | YES  |     |         |         
+ gender   | VARCHAR(255) | YES  |     |         |         
+ tel      | VARCHAR(255) | YES  |     |         |         
+----------+--------------+------+-----+---------+---------
+
+Table: type
+-------+--------------+------+-----+---------+---------
+ Field | Type         | Null | Key | Default | Remarks 
+-------+--------------+------+-----+---------+---------
+ id    | INT(10)      | NO   | PRI |         |         
+ type  | VARCHAR(255) | YES  |     |         |         
+-------+--------------+------+-----+---------+---------
+

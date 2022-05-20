@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.edu.nxu.mjl:jfinal-freemarker-helper:0.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../Maven/Repository/cn/edu/nxu/mjl/jfinal-freemarker-helper/0.1/jfinal-freemarker-helper-0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../Maven/Repository/cn/edu/nxu/mjl/jfinal-freemarker-helper/0.1/jfinal-freemarker-helper-0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../Maven/Repository/cn/edu/nxu/mjl/jfinal-freemarker-helper/0.1/jfinal-freemarker-helper-0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
